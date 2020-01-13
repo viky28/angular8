@@ -1,0 +1,40 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="box">
+      <mat-card-header>
+        <mat-card-title>Register</mat-card-title>
+      </mat-card-header>
+  
+      <form class="example-form" #RegForm="ngForm" (submit)="register(RegForm)" autocomplete="off" novalidate>
+  
+        <mat-card-content>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Username" name='username' [(ngModel)]="username" #userName="ngModel" required>
+            <!-- <mat-error *ngIf="userName.invalid">{{getErrorMessage(userName)}}</mat-error> -->
+          </mat-form-field>
+  
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Email" name='email' [(ngModel)]="email" #emailid="ngModel" required>
+            <!-- <mat-error *ngIf="emailid.invalid">{{getErrorMessage(emailid)}}</mat-error> -->
+          </mat-form-field>
+  
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Password" name='password' [(ngModel)]="password" #pass="ngModel" required>
+            <!-- <mat-error *ngIf="pass.invalid">{{getErrorMessage()}}</mat-error> -->
+          </mat-form-field>
+  
+          <mat-form-field class="example-full-width">
+            <mat-label>Choose a role...</mat-label>
+            <mat-select [(value)]="selected" name='role' [(ngModel)]="role" #roleOf="ngModel" required>
+              <mat-option [value]="roles" *ngFor="let roles of Roles">{{roles}}
+              </mat-option>
+            </mat-select>
+            <!-- <mat-error *ngIf="roleOf.invalid">{{getErrorMessage()}}</mat-error> -->
+          </mat-form-field>
+  
+        </mat-card-content>
+  
+        <button mat-stroked-button color="accent" class="btn-block" type="submit" [disabled]="RegForm.invalid">Register</button>
+  
+      </form>
+    </mat-card>
+  </div>
